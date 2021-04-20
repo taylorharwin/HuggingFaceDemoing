@@ -9,16 +9,17 @@ import {
   Highlight,
 } from "react-instantsearch-dom";
 
-const Hit = ({ hit }) => (
-  <article>
-    <h3>
-      <Highlight attribute="name" hit={hit} />
-    </h3>
-    <p>
-      <Highlight attribute="text" hit={hit} />
-    </p>
-  </article>
-);
+const Hit = ({ hit }) => {
+  console.log(hit);
+  return (
+    <article>
+      <h3>{hit.title}</h3>
+      <p>
+        <ReactMarkdown>{hit.text}</ReactMarkdown>
+      </p>
+    </article>
+  );
+};
 
 export default function Home() {
   const searchClient = algoliasearch(
